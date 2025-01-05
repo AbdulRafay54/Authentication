@@ -1,16 +1,18 @@
 
 import express from "express";
 import {
-  encryptPassword,
-  generateRefreshToken,
-  generateAccessToken,
-  registerUser,
   loginUser,
-} from "../controllers/users.controller.js";
+  logoutUser,
+  refreshToken,
+  registerUser,
+} from "../controllers/user.controller.js";
+
 const router = express.Router();
-router.post("/encryptPassword", encryptPassword);
-router.post("/refreshToken", generateRefreshToken);
-router.post("/accessToken", generateAccessToken);
+
+// register user
 router.post("/register", registerUser);
-router.post("/loginUser", loginUser);
+router.post("/login", loginUser);
+router.post("/logout", logoutUser);
+router.post("/refreshtoken", refreshToken);
+
 export default router;
